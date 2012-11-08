@@ -48,13 +48,13 @@
 //#define VWW_AUTH_URL        @"http://www.flickr.com/services/oauth/authorize"
 //#define VWW_SCOPE_URL       @""
 
-// Tumblr
-#define VWW_OAUTH_KEY       @"rKKnikNqmDm2KtsY4BzwPJ4a3QEwuGSHZXIfF7Rcp5Aqg2jYSE"
-#define VWW_OAUTH_SECRET    @"PmST95iwRI9KinYKj44uuKKY2AEPBC9ENWxTbBelTyKOoUyKlq"
-#define VWW_REQUEST_URL     @"http://www.tumblr.com/oauth/request_token"
-#define VWW_ACCESS_URL      @"http://www.tumblr.com/oauth/access_token?x_auth_mode=client_auth"
-#define VWW_AUTH_URL        @"http://www.tumblr.com/oauth/authorize"
-#define VWW_SCOPE_URL       @""
+//// Tumblr
+//#define VWW_OAUTH_KEY       @"rKKnikNqmDm2KtsY4BzwPJ4a3QEwuGSHZXIfF7Rcp5Aqg2jYSE"
+//#define VWW_OAUTH_SECRET    @"PmST95iwRI9KinYKj44uuKKY2AEPBC9ENWxTbBelTyKOoUyKlq"
+//#define VWW_REQUEST_URL     @"http://www.tumblr.com/oauth/request_token"
+//#define VWW_ACCESS_URL      @"http://www.tumblr.com/oauth/access_token?x_auth_mode=client_auth"
+//#define VWW_AUTH_URL        @"http://www.tumblr.com/oauth/authorize"
+//#define VWW_SCOPE_URL       @""
 
 
 //// Linkedin
@@ -66,6 +66,9 @@
 //#define VWW_SCOPE_URL       @""
 
 
+
+
+
 //***************************************** Sources below here use OAuth 2.0 **********************************
 //// Github
 //#define VWW_OAUTH_KEY       @"rKKnikNqmDm2KtsY4BzwPJ4a3QEwuGSHZXIfF7Rcp5Aqg2jYSE"
@@ -75,7 +78,13 @@
 //#define VWW_AUTH_URL        @"https://github.com/login/oauth/authorize"
 //#define VWW_SCOPE_URL       @""
 
-
+// Reddit
+#define VWW_OAUTH_KEY       @"BuYy60duBbiMuQ"
+#define VWW_OAUTH_SECRET    @"dIBcWV-9Q3j_OD29e5M8tsZazS4"
+#define VWW_REQUEST_URL     @"https://ssl.reddit.com/api/v1/request_token"
+#define VWW_ACCESS_URL      @"https://ssl.reddit.com/api/v1/access_token"
+#define VWW_AUTH_URL        @"https://ssl.reddit.com/api/v1/authorize"
+#define VWW_SCOPE_URL       @""
 
 
 
