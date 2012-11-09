@@ -15,76 +15,7 @@
 // OAuthSampleRootViewControllerTouch.m
 
 
-//***************************************** Sources below here use OAuth 1.0 **********************************
-//// Twitter
-//#define VWW_OAUTH_KEY       @"PmrOuEkMNp5VtUYuxDFSjw"
-//#define VWW_OAUTH_SECRET    @"UAcbVHkpC9OfGr1mwdw3VNimsvQZ7Ud6x7z4vBq7I"
-//#define VWW_REQUEST_URL     @"https://api.twitter.com/oauth/request_token"
-//#define VWW_ACCESS_URL      @"https://api.twitter.com/oauth/access_token"
-//#define VWW_AUTH_URL        @"https://api.twitter.com/oauth/authorize"
-//#define VWW_SCOPE_URL       @"http://api.twitter.com/"
 
-//// IMGUR
-//#define VWW_OAUTH_KEY       @"47547d27502a7bf4d801d3c5fcbd70430509b4d6c"
-//#define VWW_OAUTH_SECRET    @"de0515025b636a1e58296da0d164d7a4"
-//#define VWW_REQUEST_URL     @"https://api.imgur.com/oauth/request_token"
-//#define VWW_ACCESS_URL      @"https://api.imgur.com/oauth/access_token"
-//#define VWW_AUTH_URL        @"https://api.imgur.com/oauth/authorize"
-//#define VWW_SCOPE_URL       @"http://api.imgur.com/"
-
-//// Instagram
-//#define VWW_OAUTH_KEY       @"436069b066654b8f8330c3f4d9d19723"
-//#define VWW_OAUTH_SECRET    @"34677979b8f542d982fba60dce841a38"
-//#define VWW_REQUEST_URL     @"https://api.instagram.com/oauth/request_token"
-//#define VWW_ACCESS_URL      @"https://api.instagram.com/oauth/access_token"
-//#define VWW_AUTH_URL        @"https://api.instagram.com/oauth/authorize"
-//#define VWW_SCOPE_URL       @"http://api.instagram.com/"
-
-//// Flickr
-//#define VWW_OAUTH_KEY       @"547affc8f7ef457a0e53f2787239186e"
-//#define VWW_OAUTH_SECRET    @"68412371079ed808"
-//#define VWW_REQUEST_URL     @"http://www.flickr.com/services/oauth/request_token"
-//#define VWW_ACCESS_URL      @"http://www.flickr.com/services/oauth/access_token"
-//#define VWW_AUTH_URL        @"http://www.flickr.com/services/oauth/authorize"
-//#define VWW_SCOPE_URL       @""
-
-//// Tumblr
-//#define VWW_OAUTH_KEY       @"rKKnikNqmDm2KtsY4BzwPJ4a3QEwuGSHZXIfF7Rcp5Aqg2jYSE"
-//#define VWW_OAUTH_SECRET    @"PmST95iwRI9KinYKj44uuKKY2AEPBC9ENWxTbBelTyKOoUyKlq"
-//#define VWW_REQUEST_URL     @"http://www.tumblr.com/oauth/request_token"
-//#define VWW_ACCESS_URL      @"http://www.tumblr.com/oauth/access_token?x_auth_mode=client_auth"
-//#define VWW_AUTH_URL        @"http://www.tumblr.com/oauth/authorize"
-//#define VWW_SCOPE_URL       @""
-
-
-//// Linkedin
-//#define VWW_OAUTH_KEY       @"grpsxvtrejpw"
-//#define VWW_OAUTH_SECRET    @"QYsHpMiCJpatATUD"
-//#define VWW_REQUEST_URL     @"https://api.linkedin.com/uas/oauth/requestToken"
-//#define VWW_ACCESS_URL      @"https://api.linkedin.com/uas/oauth/accessToken"
-//#define VWW_AUTH_URL        @"https://api.linkedin.com/uas/oauth/authenticate"
-//#define VWW_SCOPE_URL       @""
-
-
-
-
-
-//***************************************** Sources below here use OAuth 2.0 **********************************
-//// Github
-//#define VWW_OAUTH_KEY       @"rKKnikNqmDm2KtsY4BzwPJ4a3QEwuGSHZXIfF7Rcp5Aqg2jYSE"
-//#define VWW_OAUTH_SECRET    @"PmST95iwRI9KinYKj44uuKKY2AEPBC9ENWxTbBelTyKOoUyKlq"
-//#define VWW_REQUEST_URL     @"http://www.tumblr.com/oauth/request_token"
-//#define VWW_ACCESS_URL      @"https://github.com/login/oauth/access_token"
-//#define VWW_AUTH_URL        @"https://github.com/login/oauth/authorize"
-//#define VWW_SCOPE_URL       @""
-
-// Reddit
-#define VWW_OAUTH_KEY       @"BuYy60duBbiMuQ"
-#define VWW_OAUTH_SECRET    @"dIBcWV-9Q3j_OD29e5M8tsZazS4"
-#define VWW_REQUEST_URL     @"https://ssl.reddit.com/api/v1/request_token"
-#define VWW_ACCESS_URL      @"https://ssl.reddit.com/api/v1/access_token"
-#define VWW_AUTH_URL        @"https://ssl.reddit.com/api/v1/authorize"
-#define VWW_SCOPE_URL       @""
 
 
 
@@ -97,6 +28,8 @@ static NSString *const kTwitterKeychainItemName = @"OAuth Sample: Twitter";
 static NSString *const kTwitterServiceName = @"Twitter";
 
 @interface OAuthSampleRootViewControllerTouch()
+
+
 - (void)viewController:(GTMOAuthViewControllerTouch *)viewController
       finishedWithAuth:(GTMOAuthAuthentication *)auth
                  error:(NSError *)error;
@@ -213,8 +146,8 @@ static NSString *const kTwitterServiceName = @"Twitter";
   // The controller requires a URL redirect from the server upon completion,
   // so your application should be registered with Twitter as a "web" app,
   // not a "client" app
-  NSString *myConsumerKey = VWW_OAUTH_KEY;
-  NSString *myConsumerSecret = VWW_OAUTH_SECRET;
+  NSString *myConsumerKey = VWW_TWITTER_OAUTH_KEY;
+  NSString *myConsumerSecret = VWW_TWITTER_OAUTH_SECRET;
 
   if ([myConsumerKey length] == 0 || [myConsumerSecret length] == 0) {
     return nil;
@@ -236,10 +169,10 @@ static NSString *const kTwitterServiceName = @"Twitter";
 
   [self signOut];
 
-  NSURL *requestURL = [NSURL URLWithString:VWW_REQUEST_URL];
-  NSURL *accessURL = [NSURL URLWithString:VWW_ACCESS_URL];
-  NSURL *authorizeURL = [NSURL URLWithString:VWW_AUTH_URL];
-  NSString *scope = VWW_SCOPE_URL;
+  NSURL *requestURL = [NSURL URLWithString:VWW_TWITTER_REQUEST_URL];
+  NSURL *accessURL = [NSURL URLWithString:VWW_TWITTER_ACCESS_URL];
+  NSURL *authorizeURL = [NSURL URLWithString:VWW_TWITTER_AUTH_URL];
+  NSString *scope = VWW_TWITTER_SCOPE_URL;
 
   GTMOAuthAuthentication *auth = [self authForTwitter];
   if (auth == nil) {
@@ -395,12 +328,12 @@ static NSString *const kTwitterServiceName = @"Twitter";
 
     [mEmailField setText:email];
     [mTokenField setText:token];
-    [mSignInOutButton setTitle:@"Sign Out"];
+//    [mSignInOutButton setTitle:@"Sign Out" forState:UIControlStateNormal];
   } else {
     // signed out
     [mEmailField setText:@"Not signed in"];
     [mTokenField setText:@"No authorization token"];
-    [mSignInOutButton setTitle:@"Sign In..."];
+//    [mSignInOutButton setTitle:@"Sign In..." forState:UIControlStateNormal];
   }
   BOOL isRemembering = [self shouldSaveInKeychain];
   [mShouldSaveInKeychainSwitch setOn:isRemembering];
@@ -413,6 +346,145 @@ static NSString *const kTwitterServiceName = @"Twitter";
 
 - (BOOL)shouldSaveInKeychain {
   return [[NSUserDefaults standardUserDefaults] boolForKey:kShouldSaveInKeychainKey];
+}
+
+
+- (GTMOAuthAuthentication *)authForServiceWithKey:(NSString*)key
+                                        andSecret:(NSString*)secret
+{
+    // Note: to use this sample, you need to fill in a valid consumer key and
+    // consumer secret provided by Twitter for their API
+    //
+    // http://twitter.com/apps/
+    //
+    // The controller requires a URL redirect from the server upon completion,
+    // so your application should be registered with Twitter as a "web" app,
+    // not a "client" app
+    NSString *myConsumerKey = key;
+    NSString *myConsumerSecret = secret;
+    
+    if ([myConsumerKey length] == 0 || [myConsumerSecret length] == 0) {
+        return nil;
+    }
+    
+    GTMOAuthAuthentication *auth;
+    auth = [[[GTMOAuthAuthentication alloc] initWithSignatureMethod:kGTMOAuthSignatureMethodHMAC_SHA1
+                                                        consumerKey:myConsumerKey
+                                                         privateKey:myConsumerSecret] autorelease];
+    
+    // setting the service name lets us inspect the auth object later to know
+    // what service it is for
+    [auth setServiceProvider:kTwitterServiceName];
+    
+    return auth;
+}
+
+
+- (void)signInToServiceWithRequestURL:(NSString*)requestURLString
+                            accessURL:(NSString*)accessURLString
+                         authorizeURL:(NSString*)authorizeURLString
+                                scope:(NSString*)scopeURLString
+                          consumerKey:(NSString*)key
+                       consumerSecret:(NSString*)secret
+{
+    
+    [self signOut];
+    
+    NSURL *requestURL = [NSURL URLWithString:requestURLString];
+    NSURL *accessURL = [NSURL URLWithString:accessURLString];
+    NSURL *authorizeURL = [NSURL URLWithString:authorizeURLString];
+    
+//    GTMOAuthAuthentication *auth = [self authForTwitter];
+    GTMOAuthAuthentication* auth = [self authForServiceWithKey:key andSecret:secret];
+    if (auth == nil) {
+        // perhaps display something friendlier in the UI?
+        NSAssert(NO, @"A valid consumer key and consumer secret are required for signing in to Twitter");
+    }
+    
+    // set the callback URL to which the site should redirect, and for which
+    // the OAuth controller should look to determine when sign-in has
+    // finished or been canceled
+    //
+    // This URL does not need to be for an actual web page; it will not be
+    // loaded
+    [auth setCallback:@"http://www.example.com/OAuthCallback"];
+    
+    NSString *keychainItemName = nil;
+    if ([self shouldSaveInKeychain]) {
+        keychainItemName = kTwitterKeychainItemName;
+    }
+    
+    // Display the autentication view.
+    GTMOAuthViewControllerTouch *viewController;
+    viewController = [[[GTMOAuthViewControllerTouch alloc] initWithScope:scopeURLString
+                                                                language:nil
+                                                         requestTokenURL:requestURL
+                                                       authorizeTokenURL:authorizeURL
+                                                          accessTokenURL:accessURL
+                                                          authentication:auth
+                                                          appServiceName:keychainItemName
+                                                                delegate:self
+                                                        finishedSelector:@selector(viewController:finishedWithAuth:error:)] autorelease];
+    
+    // We can set a URL for deleting the cookies after sign-in so the next time
+    // the user signs in, the browser does not assume the user is already signed
+    // in
+    [viewController setBrowserCookiesURL:[NSURL URLWithString:@"http://api.twitter.com/"]];
+    
+    // You can set the title of the navigationItem of the controller here, if you want.
+    
+    [[self navigationController] pushViewController:viewController animated:YES];
+}
+
+
+- (IBAction)signInTwitterButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_TWITTER_REQUEST_URL
+                              accessURL:VWW_TWITTER_ACCESS_URL
+                           authorizeURL:VWW_TWITTER_AUTH_URL
+                                  scope:VWW_TWITTER_SCOPE_URL
+                            consumerKey:VWW_TWITTER_OAUTH_KEY
+                         consumerSecret:VWW_TWITTER_OAUTH_SECRET];
+}
+- (IBAction)signInImgurButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_IMGUR_REQUEST_URL
+                              accessURL:VWW_IMGUR_ACCESS_URL
+                           authorizeURL:VWW_IMGUR_AUTH_URL
+                                  scope:VWW_IMGUR_SCOPE_URL
+                            consumerKey:VWW_IMGUR_OAUTH_KEY
+                         consumerSecret:VWW_IMGUR_OAUTH_SECRET];
+
+}
+- (IBAction)signInInstagramButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_INSTAGRAM_REQUEST_URL
+                              accessURL:VWW_INSTAGRAM_ACCESS_URL
+                           authorizeURL:VWW_INSTAGRAM_AUTH_URL
+                                  scope:VWW_INSTAGRAM_SCOPE_URL
+                            consumerKey:VWW_INSTAGRAM_OAUTH_KEY
+                         consumerSecret:VWW_INSTAGRAM_OAUTH_SECRET];
+}
+- (IBAction)signInFlickrButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_FLICKR_REQUEST_URL
+                              accessURL:VWW_FLICKR_ACCESS_URL
+                           authorizeURL:VWW_FLICKR_AUTH_URL
+                                  scope:VWW_FLICKR_SCOPE_URL
+                            consumerKey:VWW_FLICKR_OAUTH_KEY
+                         consumerSecret:VWW_FLICKR_OAUTH_SECRET];
+}
+- (IBAction)signInTumblrButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_TUMBLR_REQUEST_URL
+                              accessURL:VWW_TUMBLR_ACCESS_URL
+                           authorizeURL:VWW_TUMBLR_AUTH_URL
+                                  scope:VWW_TUMBLR_SCOPE_URL
+                            consumerKey:VWW_TUMBLR_OAUTH_KEY
+                         consumerSecret:VWW_TUMBLR_OAUTH_SECRET];
+}
+- (IBAction)signInLinkedinButtonHandler:(id)sender{
+    [self signInToServiceWithRequestURL:VWW_LINKEDIN_REQUEST_URL
+                              accessURL:VWW_LINKEDIN_ACCESS_URL
+                           authorizeURL:VWW_LINKEDIN_AUTH_URL
+                                  scope:VWW_LINKEDIN_SCOPE_URL
+                            consumerKey:VWW_LINKEDIN_OAUTH_KEY
+                         consumerSecret:VWW_LINKEDIN_OAUTH_SECRET];
 }
 
 @end

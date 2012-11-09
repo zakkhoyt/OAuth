@@ -13,6 +13,13 @@
  * limitations under the License.
  */
 
+
+
+
+
+
+
+
 // OAuth2SampleRootViewControllerTouch.m
 
 #import "OAuth2SampleRootViewControllerTouch.h"
@@ -245,14 +252,16 @@ static NSString *const kDailyMotionClientSecretKey = @"DailyMotionClientSecret";
 
   // For Google APIs, the scope strings are available
   // in the service constant header files.
-  NSString *scope = @"https://www.googleapis.com/auth/plus.me";
+    NSString *scope = @"https://www.googleapis.com/auth/plus.me";
+//    NSString *scope = VWW_AUTH_URL;
+
 
   // Typically, applications will hardcode the client ID and client secret
   // strings into the source code; they should not be user-editable or visible.
   //
   // But for this sample code, they are editable.
-  NSString *clientID = self.clientIDField.text;
-  NSString *clientSecret = self.clientSecretField.text;
+  NSString *clientID = VWW_OAUTH_KEY;
+  NSString *clientSecret = VWW_OAUTH_SECRET;
 
   if ([clientID length] == 0 || [clientSecret length] == 0) {
     NSString *msg = @"The sample code requires a valid client ID and client secret to sign in.";

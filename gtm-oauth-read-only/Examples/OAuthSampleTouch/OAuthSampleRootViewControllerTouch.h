@@ -19,7 +19,7 @@
 @interface OAuthSampleRootViewControllerTouch : UIViewController<UINavigationControllerDelegate> {
   UISwitch *mShouldSaveInKeychainSwitch;
   UISegmentedControl *mServiceSegments;
-  UIBarButtonItem *mSignInOutButton;
+  UIButton *mSignInOutButton;
   int mNetworkActivityCounter;
   UILabel *mEmailField;
   UILabel *mTokenField;
@@ -27,9 +27,25 @@
 }
 @property (nonatomic, retain) IBOutlet UISegmentedControl *serviceSegments;
 @property (nonatomic, retain) IBOutlet UISwitch *shouldSaveInKeychainSwitch;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *signInOutButton;
+@property (nonatomic, retain) IBOutlet UIButton *signInOutButton;
 @property (nonatomic, retain) IBOutlet UILabel *emailField;
 @property (nonatomic, retain) IBOutlet UILabel *tokenField;
+
+@property (nonatomic, retain) IBOutlet UIButton* signInTwitter;
+@property (nonatomic, retain) IBOutlet UIButton* signInImgur;
+@property (nonatomic, retain) IBOutlet UIButton* signInInstagram;
+@property (nonatomic, retain) IBOutlet UIButton* signInFlickr;
+@property (nonatomic, retain) IBOutlet UIButton* signInTumblr;
+@property (nonatomic, retain) IBOutlet UIButton* signInLinkedin;
+
+- (IBAction)signInTwitterButtonHandler:(id)sender;
+- (IBAction)signInImgurButtonHandler:(id)sender;
+- (IBAction)signInInstagramButtonHandler:(id)sender;
+- (IBAction)signInFlickrButtonHandler:(id)sender;
+- (IBAction)signInTumblrButtonHandler:(id)sender;
+- (IBAction)signInLinkedinButtonHandler:(id)sender;
+
+
 
 - (IBAction)signInOutClicked:(id)sender;
 - (IBAction)toggleShouldSaveInKeychain:(id)sender;
